@@ -1,0 +1,3813 @@
+{
+  "openapi": "3.0.1",
+  "x-stoplight": {
+    "id": "mms4tuacjq6gj"
+  },
+  "info": {
+    "title": "PowerMax - Enhanced Endpoints",
+    "description": "Open API",
+    "contact": {
+      "name": "Support",
+      "url": "https://www.delltechnologies.com/en-us/storage/storage-automation-and-developer-resources/index.htm",
+      "email": "powermax.api.tech@dell.com"
+    },
+    "version": "10.1"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:8443/univmax/rest",
+      "description": "localhost",
+      "variables": {}
+    }
+  ],
+  "security": [
+    {
+      "apiSecurity": [
+        "global"
+      ]
+    }
+  ],
+  "tags": [
+    {
+      "name": "StorageGroups",
+      "description": "Serviceability Grouping of Endpoints"
+    },
+    {
+      "name": "Volumes",
+      "description": "Serviceability Grouping of Endpoints"
+    }
+  ],
+  "paths": {
+    "/v1/systems/{id}/performance-categories/{category}": {
+      "get": {
+        "tags": [
+          "Performance"
+        ],
+        "summary": "Get Bulk collection of KPI metrics for all instances of a specified Category for the lastAvailable timestamp",
+        "description": "This endpoint will return a bulk collection of KPI metrics for a specified Category for the last available timestamp\"",
+        "operationId": "getBulkPerformanceCategoriesAndMetrics",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "category",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/performanceCategoryMetrics"
+                },
+                "examples": {
+                  "example": {
+                    "description": "example",
+                    "value": {
+                      "id": "BEDirector",
+                      "resource_type": "performance-categories",
+                      "system": "000220200145",
+                      "metric_instances": [
+                        {
+                          "id": "DF-4B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 23.342194,
+                              "Reqs": 6.2358804,
+                              "ReadReqs": 0.036544852,
+                              "WriteReqs": 6.1993356,
+                              "SyscallCount": 0.029900333,
+                              "MBRead": 1.3213897,
+                              "MBWritten": 0.5396854,
+                              "MBs": 1.8610752,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        },
+                        {
+                          "id": "DF-3B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 35.813953,
+                              "Reqs": 10.727574,
+                              "ReadReqs": 0.003322259,
+                              "WriteReqs": 10.724253,
+                              "SyscallCount": 0.026578072,
+                              "MBRead": 1.8624507,
+                              "MBWritten": 1.1601952,
+                              "MBs": 3.022646,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        },
+                        {
+                          "id": "DF-2B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 21.76412,
+                              "Reqs": 5.421927,
+                              "ReadReqs": 0,
+                              "WriteReqs": 5.421927,
+                              "SyscallCount": 0.026578072,
+                              "MBRead": 1.3030523,
+                              "MBWritten": 0.506956,
+                              "MBs": 1.8100083,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        },
+                        {
+                          "id": "DF-1B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 36.083057,
+                              "Reqs": 10.664452,
+                              "ReadReqs": 0,
+                              "WriteReqs": 10.664452,
+                              "SyscallCount": 0.06312292,
+                              "MBRead": 1.7692068,
+                              "MBWritten": 1.1309178,
+                              "MBs": 2.9001245,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/performanceCategoryMetrics"
+                },
+                "examples": {
+                  "example": {
+                    "description": "example",
+                    "value": {
+                      "id": "BEDirector",
+                      "resource_type": "performance-categories",
+                      "system": "000220200145",
+                      "metric_instances": [
+                        {
+                          "id": "DF-4B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 23.342194,
+                              "Reqs": 6.2358804,
+                              "ReadReqs": 0.036544852,
+                              "WriteReqs": 6.1993356,
+                              "SyscallCount": 0.029900333,
+                              "MBRead": 1.3213897,
+                              "MBWritten": 0.5396854,
+                              "MBs": 1.8610752,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        },
+                        {
+                          "id": "DF-3B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 35.813953,
+                              "Reqs": 10.727574,
+                              "ReadReqs": 0.003322259,
+                              "WriteReqs": 10.724253,
+                              "SyscallCount": 0.026578072,
+                              "MBRead": 1.8624507,
+                              "MBWritten": 1.1601952,
+                              "MBs": 3.022646,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        },
+                        {
+                          "id": "DF-2B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 21.76412,
+                              "Reqs": 5.421927,
+                              "ReadReqs": 0,
+                              "WriteReqs": 5.421927,
+                              "SyscallCount": 0.026578072,
+                              "MBRead": 1.3030523,
+                              "MBWritten": 0.506956,
+                              "MBs": 1.8100083,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        },
+                        {
+                          "id": "DF-1B",
+                          "metrics": [
+                            {
+                              "PercentBusy": 0,
+                              "IOs": 36.083057,
+                              "Reqs": 10.664452,
+                              "ReadReqs": 0,
+                              "WriteReqs": 10.664452,
+                              "SyscallCount": 0.06312292,
+                              "MBRead": 1.7692068,
+                              "MBWritten": 1.1309178,
+                              "MBs": 2.9001245,
+                              "timestamp": 1686657300000
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "409": {
+            "description": "Conflict"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/systems/{id}/performance-categories": {
+      "get": {
+        "tags": [
+          "Performance"
+        ],
+        "summary": "List Categories and associated KPI Metrics",
+        "description": "This endpoint will return a collection of possible categories for the selected system and their associated KPI metrics",
+        "operationId": "getBulkPerformanceCategoriesAndMetricsHelp",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/performanceCategoryInstances"
+                },
+                "examples": {
+                  "example": {
+                    "description": "example",
+                    "value": {
+                      "performance_categories": [
+                        {
+                          "id": "Array",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEIOs",
+                            "BEUtilization",
+                            "CapacityR1CacheSlotsInUse",
+                            "CapacityR2CacheSlotsInUse",
+                            "DA_Balance",
+                            "DataReductionRatioOnReducible",
+                            "DiskUtilization",
+                            "EFD_Balance",
+                            "FEUtilization",
+                            "FE_Balance",
+                            "HostIOs",
+                            "HostMBs",
+                            "LocalWPUsedCapacity",
+                            "PercentCacheWP",
+                            "PercentHit",
+                            "PercentReads",
+                            "PercentWrites",
+                            "RDFUtilization",
+                            "RDF_Balance",
+                            "ReadResponseTime",
+                            "SystemMaxWPLimitCapacity",
+                            "SystemWPEvents",
+                            "WPUsedCapacity",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "BEDirector",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "IOs",
+                            "MBRead",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "ReadReqs",
+                            "Reqs",
+                            "SyscallCount",
+                            "WriteReqs"
+                          ]
+                        },
+                        {
+                          "id": "Board",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "InboundMBs",
+                            "InterConnect",
+                            "MaxSpeedMBs",
+                            "OutboundMBs"
+                          ]
+                        },
+                        {
+                          "id": "DIMM",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "DimmSBECount"
+                          ]
+                        },
+                        {
+                          "id": "DeviceGroup",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "RDFS_WriteResponseTime",
+                            "RandomIOs",
+                            "RandomReads",
+                            "RandomWrites",
+                            "RdfResponseTime",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "SeqIOs",
+                            "SeqReads",
+                            "SeqWrites",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "Disk",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgResponseTime",
+                            "DiskReads",
+                            "DiskWrites",
+                            "IOs",
+                            "MBReads",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "PercentCapacityFree",
+                            "PercentCapacityUsed",
+                            "ReadResponseTime",
+                            "TotalCapacity",
+                            "UsedCapacity",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "IPInterface",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "IoRate",
+                            "MBs",
+                            "PacketCount",
+                            "Reads",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "Initiator",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWrites",
+                            "MBs",
+                            "ReadResponseTime",
+                            "Reads",
+                            "ResponseTime",
+                            "SyscallCount",
+                            "WriteResponseTime",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "MaskingView",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "HostIOs",
+                            "HostMBs",
+                            "ResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "PortGroup",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgIOSize",
+                            "IOs",
+                            "MBRead",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "Reads",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "RDFA",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgCycleSizeCapacity",
+                            "AvgCycleTime",
+                            "AvgIOServiceTime",
+                            "LocalWPUsedCapacity",
+                            "RDFAWPCountCapacity",
+                            "RDF_R1_R2_IOs",
+                            "RDF_R1_R2_MBs",
+                            "RdfResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "RDFDirector",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgIOServiceTime",
+                            "CopyIOs",
+                            "CopyMBs",
+                            "IOs",
+                            "MBRead",
+                            "MBSentAndReceived",
+                            "MBWritten",
+                            "PercentBusy",
+                            "WriteReqs"
+                          ]
+                        },
+                        {
+                          "id": "RDFPort",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgIOSize",
+                            "IOs",
+                            "MBRead",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "Reads",
+                            "SpeedGBs",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "RDFS",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "RDFResponseTime",
+                            "RDFS_WriteResponseTime",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "SDNASFileSystem",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "Reads",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "SDNASInterface",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BandwidthUtilization",
+                            "DataReceived",
+                            "DataTransferred"
+                          ]
+                        },
+                        {
+                          "id": "SDNASNode",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "CPUIdlePercent",
+                            "CPULoadPercent",
+                            "MemoryFree",
+                            "NFSReadResponseTime",
+                            "NFSReads",
+                            "NFSResponseTime",
+                            "NFSWriteResponseTime",
+                            "NFSWrites",
+                            "PercentMemoryUsed",
+                            "SMB2ReadResponseTime",
+                            "SMB2Reads",
+                            "SMB2ResponseTime",
+                            "SMB2WriteResponseTime",
+                            "SMB2Writes"
+                          ]
+                        },
+                        {
+                          "id": "SDNASServer",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "ClientReadRequests",
+                            "ClientWriteRequests"
+                          ]
+                        },
+                        {
+                          "id": "SRP",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEMBTransferred",
+                            "BEReqs",
+                            "HostIOs",
+                            "HostMBs",
+                            "ResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "StorageContainer",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOLimitPercentTimeExceeded",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "StorageGroup",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgQOSDelayPerIO",
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOLimitPercentTimeExceeded",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "RDFS_WriteResponseTime",
+                            "RdfResponseTime",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "VAAITotalCommandCount",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "StorageResource",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOLimitPercentTimeExceeded",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "cloudprovider",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "DeleteResponseTime",
+                            "ReadResponseTime",
+                            "ReadThroughput",
+                            "TotalThroughput",
+                            "TotalUsedCapacity",
+                            "WriteResponseTime",
+                            "WriteThroughput"
+                          ]
+                        },
+                        {
+                          "id": "zHyperLinkPort",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "ReadIO",
+                            "ReadProcessingTime",
+                            "ReadRequests"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/performanceCategoryInstances"
+                },
+                "examples": {
+                  "example": {
+                    "description": "example",
+                    "value": {
+                      "performance_categories": [
+                        {
+                          "id": "Array",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEIOs",
+                            "BEUtilization",
+                            "CapacityR1CacheSlotsInUse",
+                            "CapacityR2CacheSlotsInUse",
+                            "DA_Balance",
+                            "DataReductionRatioOnReducible",
+                            "DiskUtilization",
+                            "EFD_Balance",
+                            "FEUtilization",
+                            "FE_Balance",
+                            "HostIOs",
+                            "HostMBs",
+                            "LocalWPUsedCapacity",
+                            "PercentCacheWP",
+                            "PercentHit",
+                            "PercentReads",
+                            "PercentWrites",
+                            "RDFUtilization",
+                            "RDF_Balance",
+                            "ReadResponseTime",
+                            "SystemMaxWPLimitCapacity",
+                            "SystemWPEvents",
+                            "WPUsedCapacity",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "BEDirector",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "IOs",
+                            "MBRead",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "ReadReqs",
+                            "Reqs",
+                            "SyscallCount",
+                            "WriteReqs"
+                          ]
+                        },
+                        {
+                          "id": "Board",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "InboundMBs",
+                            "InterConnect",
+                            "MaxSpeedMBs",
+                            "OutboundMBs"
+                          ]
+                        },
+                        {
+                          "id": "DIMM",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "DimmSBECount"
+                          ]
+                        },
+                        {
+                          "id": "DeviceGroup",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "RDFS_WriteResponseTime",
+                            "RandomIOs",
+                            "RandomReads",
+                            "RandomWrites",
+                            "RdfResponseTime",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "SeqIOs",
+                            "SeqReads",
+                            "SeqWrites",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "Disk",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgResponseTime",
+                            "DiskReads",
+                            "DiskWrites",
+                            "IOs",
+                            "MBReads",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "PercentCapacityFree",
+                            "PercentCapacityUsed",
+                            "ReadResponseTime",
+                            "TotalCapacity",
+                            "UsedCapacity",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "IPInterface",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "IoRate",
+                            "MBs",
+                            "PacketCount",
+                            "Reads",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "Initiator",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWrites",
+                            "MBs",
+                            "ReadResponseTime",
+                            "Reads",
+                            "ResponseTime",
+                            "SyscallCount",
+                            "WriteResponseTime",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "MaskingView",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "HostIOs",
+                            "HostMBs",
+                            "ResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "PortGroup",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgIOSize",
+                            "IOs",
+                            "MBRead",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "Reads",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "RDFA",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgCycleSizeCapacity",
+                            "AvgCycleTime",
+                            "AvgIOServiceTime",
+                            "LocalWPUsedCapacity",
+                            "RDFAWPCountCapacity",
+                            "RDF_R1_R2_IOs",
+                            "RDF_R1_R2_MBs",
+                            "RdfResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "RDFDirector",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgIOServiceTime",
+                            "CopyIOs",
+                            "CopyMBs",
+                            "IOs",
+                            "MBRead",
+                            "MBSentAndReceived",
+                            "MBWritten",
+                            "PercentBusy",
+                            "WriteReqs"
+                          ]
+                        },
+                        {
+                          "id": "RDFPort",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgIOSize",
+                            "IOs",
+                            "MBRead",
+                            "MBWritten",
+                            "MBs",
+                            "PercentBusy",
+                            "Reads",
+                            "SpeedGBs",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "RDFS",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "RDFResponseTime",
+                            "RDFS_WriteResponseTime",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "SDNASFileSystem",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "Reads",
+                            "Writes"
+                          ]
+                        },
+                        {
+                          "id": "SDNASInterface",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BandwidthUtilization",
+                            "DataReceived",
+                            "DataTransferred"
+                          ]
+                        },
+                        {
+                          "id": "SDNASNode",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "CPUIdlePercent",
+                            "CPULoadPercent",
+                            "MemoryFree",
+                            "NFSReadResponseTime",
+                            "NFSReads",
+                            "NFSResponseTime",
+                            "NFSWriteResponseTime",
+                            "NFSWrites",
+                            "PercentMemoryUsed",
+                            "SMB2ReadResponseTime",
+                            "SMB2Reads",
+                            "SMB2ResponseTime",
+                            "SMB2WriteResponseTime",
+                            "SMB2Writes"
+                          ]
+                        },
+                        {
+                          "id": "SDNASServer",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "ClientReadRequests",
+                            "ClientWriteRequests"
+                          ]
+                        },
+                        {
+                          "id": "SRP",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEMBTransferred",
+                            "BEReqs",
+                            "HostIOs",
+                            "HostMBs",
+                            "ResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "StorageContainer",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOLimitPercentTimeExceeded",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "StorageGroup",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "AvgQOSDelayPerIO",
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOLimitPercentTimeExceeded",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "RDFS_WriteResponseTime",
+                            "RdfResponseTime",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "VAAITotalCommandCount",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "StorageResource",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "BEReadReqs",
+                            "BEReqs",
+                            "BEWriteReqs",
+                            "HostHits",
+                            "HostIOLimitPercentTimeExceeded",
+                            "HostIOs",
+                            "HostMBReads",
+                            "HostMBWritten",
+                            "HostMBs",
+                            "HostMisses",
+                            "HostReads",
+                            "HostWrites",
+                            "PercentHit",
+                            "PercentMisses",
+                            "PercentRead",
+                            "PercentWrite",
+                            "ReadResponseTime",
+                            "ResponseTime",
+                            "WPCount",
+                            "WriteResponseTime"
+                          ]
+                        },
+                        {
+                          "id": "cloudprovider",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "DeleteResponseTime",
+                            "ReadResponseTime",
+                            "ReadThroughput",
+                            "TotalThroughput",
+                            "TotalUsedCapacity",
+                            "WriteResponseTime",
+                            "WriteThroughput"
+                          ]
+                        },
+                        {
+                          "id": "zHyperLinkPort",
+                          "resource_type": "performance-categories",
+                          "system": "000220200145",
+                          "metrics": [
+                            "ReadIO",
+                            "ReadProcessingTime",
+                            "ReadRequests"
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/systems/{id}/storage-groups": {
+      "get": {
+        "tags": [
+          "StorageGroups"
+        ],
+        "summary": "List StorageGroup Objects",
+        "description": "This call queries for the list of Storage Groups for a selected System",
+        "operationId": "listStorageGroups",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The System ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "the Defined Selected Attributes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "the Defined Filter Attributes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "the Defined Order By Attributes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rest_handle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/storageGroups"
+                },
+                "examples": {
+                  "example": {
+                    "description": "example",
+                    "value": {
+                      "storage_groups": [
+                        {
+                          "id": "PF_PMUNI-16037_1",
+                          "resource_type": "storage-groups",
+                          "type": "child",
+                          "uuid": "00000000000000000000000000000000",
+                          "system": {
+                            "id": "000297901855"
+                          },
+                          "volume_emulation": "FBA",
+                          "srp": {
+                            "id": "SRP_1"
+                          },
+                          "num_of_volumes": 2,
+                          "volumes": [
+                            {
+                              "id": "006E8"
+                            },
+                            {
+                              "id": "006E7"
+                            }
+                          ],
+                          "num_of_non_gk_volumes": 2,
+                          "non_gk_volumes": [
+                            {
+                              "id": "006E8"
+                            },
+                            {
+                              "id": "006E7"
+                            }
+                          ],
+                          "num_of_child_storage_groups": 0,
+                          "num_of_parent_storage_groups": 1,
+                          "parent_storage_groups": [
+                            {
+                              "id": "PF_PMUNI-16037"
+                            }
+                          ],
+                          "num_of_snapshots": 0,
+                          "snapshots": [],
+                          "num_of_snapshot_policies": 0,
+                          "snapshot_policies": [],
+                          "num_of_rdf_infos": 1,
+                          "rdf_infos": [
+                            {
+                              "pairs": [
+                                {
+                                  "local_volume": {
+                                    "id": "006E7"
+                                  },
+                                  "remote_volume": {
+                                    "id": "01A55"
+                                  }
+                                },
+                                {
+                                  "local_volume": {
+                                    "id": "006E8"
+                                  },
+                                  "remote_volume": {
+                                    "id": "01A57"
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "service_level": {
+                            "id": "Diamond"
+                          },
+                          "last_modified_time_ms": 3080498,
+                          "group_last_modified_time_ms": 3080498,
+                          "timestamp_ms": 1684507278,
+                          "data_reduction_enabled": true,
+                          "data_reduction_ratio_to_one": 0,
+                          "unreducible_data_gb": 0
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/v1/systems/{id}/volumes": {
+      "get": {
+        "tags": [
+          "Volumes"
+        ],
+        "summary": "List Volume Objects",
+        "description": "This call queries for the list of Volumes for a selected System",
+        "operationId": "listVolumes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The System ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "the Defined Selected Attributes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "filter",
+            "in": "query",
+            "description": "the Defined Filter Attributes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "the Defined Order By Attributes",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rest_handle",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/volumes"
+                },
+                "examples": {
+                  "example": {
+                    "description": "example",
+                    "value": {
+                      "volumes": [
+                        {
+                          "id": "00465",
+                          "type": "TDEV",
+                          "system": {
+                            "id": "000297901855"
+                          },
+                          "emulation": "FBA",
+                          "status": "Ready",
+                          "ssid": "0xFFFFFFFF",
+                          "nguid": "18555330303436350000976000029790",
+                          "wwn": "60000970000297901855533030343635",
+                          "effective_wwn": "60000970000297901855533030343635",
+                          "mobility_id_enabled": false,
+                          "encapsulated": false,
+                          "snapvx_source": true,
+                          "snapvx_target": false,
+                          "num_of_storage_groups": 2,
+                          "storage_groups": [
+                            {
+                              "id": "SDRlWK_sd_bulky_child_a_4"
+                            },
+                            {
+                              "id": "SDRlWK_sd_bulky_parent_a"
+                            }
+                          ],
+                          "num_of_masking_views": 0,
+                          "masking_views": [],
+                          "cap_tb": 0,
+                          "cap_gb": 3,
+                          "cap_mb": 3073,
+                          "cap_cyl": 1639,
+                          "unreducible_data_gb": 0,
+                          "data_reduction_ratio_to_one": 0,
+                          "data_reduction_enabled": false,
+                          "effective_used_capacity_gb": 0,
+                          "srp": {
+                            "id": "SRP_1"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ResultType": {
+        "title": "metrics",
+        "minProperties": 1,
+        "type": "object",
+        "description": "metrics"
+      },
+      "category": {
+        "title": "metric_instances",
+        "required": [
+          "id",
+          "metrics"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the Category."
+          },
+          "metrics": {
+            "title": "metrics",
+            "minProperties": 1,
+            "type": "array",
+            "description": "metrics",
+            "items": {
+              "$ref": "#/components/schemas/ResultType"
+            }
+          }
+        },
+        "description": "com.emc.em.rest.v1.performance.dto.Category",
+        "xml": {
+          "name": "category"
+        }
+      },
+      "performanceCategoryMetrics": {
+        "required": [
+          "id",
+          "system"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the Category."
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The type of resource."
+          },
+          "system": {
+            "title": "system",
+            "pattern": "\\d{12}",
+            "type": "string",
+            "description": "The associated system."
+          },
+          "metric_instances": {
+            "title": "metric_instances",
+            "type": "array",
+            "description": "metric_instances",
+            "items": {
+              "$ref": "#/components/schemas/category"
+            }
+          }
+        },
+        "description": "com.emc.em.rest.v1.performance.dto.PerformanceCategoryMetrics",
+        "xml": {
+          "name": "performanceCategoryMetrics"
+        }
+      },
+      "Performance_Category": {
+        "title": "performance_categories",
+        "required": [
+          "id",
+          "system"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the Category."
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The type of resource."
+          },
+          "system": {
+            "title": "system",
+            "pattern": "\\d{12}",
+            "type": "string",
+            "description": "The associated system."
+          },
+          "metrics": {
+            "title": "metrics",
+            "type": "array",
+            "description": "metrics",
+            "items": {
+              "title": "metrics",
+              "type": "string",
+              "description": "metrics"
+            }
+          }
+        },
+        "description": "com.emc.em.rest.v1.performance.dto.Performance_Category"
+      },
+      "performanceCategoryInstances": {
+        "type": "object",
+        "properties": {
+          "performance_categories": {
+            "title": "performance_categories",
+            "type": "array",
+            "description": "performance_categories",
+            "items": {
+              "$ref": "#/components/schemas/Performance_Category"
+            }
+          }
+        },
+        "description": "com.emc.em.rest.v1.performance.dto.PerformanceCategoryInstances",
+        "xml": {
+          "name": "performanceCategoryInstances"
+        }
+      },
+      "storageGroup": {
+        "title": "storage_groups",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the storage group"
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The storage group type"
+          },
+          "uuid": {
+            "title": "uuid",
+            "type": "string",
+            "description": "Storage Group UUID"
+          },
+          "system": {
+            "$ref": "#/components/schemas/storageGroup_System"
+          },
+          "volume_emulation": {
+            "title": "volume_emulation",
+            "type": "string",
+            "description": "The emulation of the volumes in the storage group"
+          },
+          "srp": {
+            "$ref": "#/components/schemas/storageGroup_Srp"
+          },
+          "num_of_volumes": {
+            "title": "num_of_volumes",
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "description": "The number of volumes associated with the storage group",
+            "format": "int32"
+          },
+          "volumes": {
+            "title": "volumes",
+            "type": "array",
+            "description": "The Volumes(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_Volume"
+            }
+          },
+          "num_of_non_gk_volumes": {
+            "title": "num_of_non_gk_volumes",
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "description": "The number of Non GateKeeper volumes associated with the storage group",
+            "format": "int32"
+          },
+          "non_gk_volumes": {
+            "title": "non_gk_volumes",
+            "type": "array",
+            "description": "The Non GateKeeper Volumes(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_GateKeeperVolume"
+            }
+          },
+          "num_of_child_storage_groups": {
+            "title": "num_of_child_storage_groups",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of child storage groups associated with the storage group",
+            "format": "int64"
+          },
+          "child_storage_groups": {
+            "title": "child_storage_groups",
+            "type": "array",
+            "description": "The child storage group(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_ChildStorageGroup"
+            }
+          },
+          "num_of_parent_storage_groups": {
+            "title": "num_of_parent_storage_groups",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of parent storage groups associated with the storage group",
+            "format": "int64"
+          },
+          "parent_storage_groups": {
+            "title": "parent_storage_groups",
+            "type": "array",
+            "description": "The parent storage group(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_ParentStorageGroup"
+            }
+          },
+          "num_of_masking_views": {
+            "title": "num_of_masking_views",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of masking views associated with the storage group",
+            "format": "int64"
+          },
+          "masking_views": {
+            "title": "masking_views",
+            "type": "array",
+            "description": "The masking view(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_MaskingView"
+            }
+          },
+          "num_of_snapshots": {
+            "title": "num_of_snapshots",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of snapshots associated with the storage group",
+            "format": "int64"
+          },
+          "snapshots": {
+            "title": "snapshots",
+            "type": "array",
+            "description": "The snapshot(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_Snapshot"
+            }
+          },
+          "num_of_snapshot_policies": {
+            "title": "num_of_snapshot_policies",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of snapshot policies associated with the storage group",
+            "format": "int64"
+          },
+          "snapshot_policies": {
+            "title": "snapshot_policies",
+            "type": "array",
+            "description": "The snapshot policies associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_SnapshotPolicy"
+            }
+          },
+          "num_of_clones": {
+            "title": "num_of_clones",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of Clones associated with the storage group",
+            "format": "int64"
+          },
+          "clones": {
+            "title": "clones",
+            "type": "array",
+            "description": "The Clone(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_Clone"
+            }
+          },
+          "num_of_rdf_infos": {
+            "title": "num_of_rdf_infos",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Number of RDF Info Objects associated with the storage group",
+            "format": "int64"
+          },
+          "rdf_infos": {
+            "title": "rdf_infos",
+            "type": "array",
+            "description": "The RDF Infos associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_RdfInfo"
+            }
+          },
+          "host_io_limit_info": {
+            "$ref": "#/components/schemas/storageGroup_HostIoInfo"
+          },
+          "service_level": {
+            "$ref": "#/components/schemas/storageGroup_ServiceLevel"
+          },
+          "tags": {
+            "title": "tags",
+            "type": "array",
+            "description": "The tags associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_Tag"
+            }
+          },
+          "num_of_tags": {
+            "title": "num_of_tags",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Number of Tags associated with the storage group",
+            "format": "int64"
+          },
+          "last_modified_time_ms": {
+            "title": "last_modified_time_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "time since last group update every .5 seconds.",
+            "format": "int64"
+          },
+          "group_last_modified_time_ms": {
+            "title": "group_last_modified_time_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "time since last update of this storage group or any child storage group in .5 seconds",
+            "format": "int64"
+          },
+          "timestamp_ms": {
+            "title": "timestamp_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "timestamp associated with this Storage Group",
+            "format": "int64"
+          },
+          "effective_used_capacity_gb": {
+            "title": "effective_used_capacity_gb",
+            "type": "number",
+            "description": "The total Used Effective capacity in GBs (allocated_capacity || effective_used_capacity)",
+            "format": "double"
+          },
+          "data_reduction_enabled": {
+            "title": "data_reduction_enabled",
+            "type": "boolean",
+            "description": "Specifies if Data Reduction (Compression) is enabled (compression flag)"
+          },
+          "data_reduction_ratio_to_one": {
+            "title": "data_reduction_ratio_to_one",
+            "type": "number",
+            "description": "Specifies the Data Reduction (Compression) Ratio in relation to one (compression_ratio)",
+            "format": "double"
+          },
+          "unreducible_data_gb": {
+            "title": "unreducible_data_gb",
+            "type": "number",
+            "description": "The amount of Unreducible data in GB.",
+            "format": "double"
+          },
+          "cap_gb": {
+            "title": "cap_gb",
+            "type": "number",
+            "description": "The amount of Capacity GB.",
+            "format": "double"
+          }
+        },
+        "description": "Storage Group",
+        "xml": {
+          "name": "storageGroup"
+        }
+      },
+      "storageGroup_ChildStorageGroup": {
+        "title": "child_storage_groups",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Child Storage Group"
+          }
+        },
+        "description": "Child Storage Group",
+        "xml": {
+          "name": "storageGroup_ChildStorageGroup"
+        }
+      },
+      "storageGroup_Clone": {
+        "title": "clones",
+        "required": [
+          "source_storage_group",
+          "target_storage_group"
+        ],
+        "type": "object",
+        "properties": {
+          "target_storage_group": {
+            "$ref": "#/components/schemas/storageGroup_Clone_StorageGroup"
+          },
+          "source_storage_group": {
+            "$ref": "#/components/schemas/storageGroup_Clone_StorageGroup"
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "states": {
+            "title": "states",
+            "type": "array",
+            "description": "The List of all the Pair States",
+            "items": {
+              "title": "states",
+              "type": "string",
+              "description": "The List of all the Pair States"
+            }
+          },
+          "flags": {
+            "title": "flags",
+            "type": "array",
+            "description": "The List of all the Pair Flags",
+            "items": {
+              "title": "flags",
+              "type": "string",
+              "description": "The List of all the Pair Flags"
+            }
+          },
+          "modified_tracks": {
+            "title": "modified_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of modified tracks",
+            "format": "int64"
+          },
+          "source_modified_tracks": {
+            "title": "source_modified_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of Source modified tracks",
+            "format": "int64"
+          },
+          "source_protected_tracks": {
+            "title": "source_protected_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of Source protected tracks",
+            "format": "int64"
+          },
+          "fully_cloned": {
+            "title": "fully_cloned",
+            "type": "boolean",
+            "description": "Specifies if the background copy flag is set"
+          },
+          "last_action_timestamp_ms": {
+            "title": "last_action_timestamp_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The date the last action occured on the clone ",
+            "format": "int64"
+          },
+          "num_of_pairs": {
+            "title": "num_of_pairs",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number pairs associated with the clone",
+            "format": "int64"
+          },
+          "pairs": {
+            "title": "pairs",
+            "type": "array",
+            "description": "The total number pairs associated with the clone",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_Clone_PairInfo"
+            }
+          },
+          "system": {
+            "$ref": "#/components/schemas/storageGroup_Clone_System"
+          }
+        },
+        "description": "Storage Group Clone",
+        "xml": {
+          "name": "storageGroup_Clone"
+        }
+      },
+      "storageGroup_Clone_PairInfo": {
+        "title": "pairs",
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "source_volume": {
+            "$ref": "#/components/schemas/storageGroup_Clone_PairInfo_Volume"
+          },
+          "target_volume": {
+            "$ref": "#/components/schemas/storageGroup_Clone_PairInfo_Volume"
+          },
+          "state": {
+            "title": "state",
+            "type": "string",
+            "description": "The Pair State"
+          },
+          "flags": {
+            "title": "flags",
+            "type": "array",
+            "description": "The Pair Flags",
+            "items": {
+              "title": "flags",
+              "type": "string",
+              "description": "The Pair Flags"
+            }
+          },
+          "modified_tracks": {
+            "title": "modified_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of modified tracks",
+            "format": "int64"
+          },
+          "source_modified_tracks": {
+            "title": "source_modified_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of Source modified tracks",
+            "format": "int64"
+          },
+          "source_protected_tracks": {
+            "title": "source_protected_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of Source protected tracks",
+            "format": "int64"
+          },
+          "last_action_timestamp_ms": {
+            "title": "last_action_timestamp_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The date the last action occurred on the clone ",
+            "format": "int64"
+          },
+          "percent_complete": {
+            "title": "percent_complete",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The current percent of data cloned ",
+            "format": "int64"
+          },
+          "system": {
+            "$ref": "#/components/schemas/storageGroup_Clone_PairInfo_System"
+          }
+        },
+        "description": "Volume Clone",
+        "xml": {
+          "name": "storageGroup_Clone_PairInfo"
+        }
+      },
+      "storageGroup_Clone_PairInfo_System": {
+        "title": "system",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "pattern": "\\d{12}",
+            "type": "string",
+            "description": "The Id of the System "
+          }
+        },
+        "description": "Clone System",
+        "xml": {
+          "name": "storageGroup_Clone_PairInfo_System"
+        }
+      },
+      "storageGroup_Clone_PairInfo_Volume": {
+        "title": "target_volume",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Volume"
+          }
+        },
+        "description": "Clone Pair Volume",
+        "xml": {
+          "name": "storageGroup_Clone_PairInfo_Volume"
+        }
+      },
+      "storageGroup_Clone_StorageGroup": {
+        "title": "source_storage_group",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The Id of the Storage Group "
+          }
+        },
+        "description": "Clone Storage Group",
+        "xml": {
+          "name": "storageGroup_Clone_StorageGroup"
+        }
+      },
+      "storageGroup_Clone_System": {
+        "title": "system",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "pattern": "\\d{12}",
+            "type": "string",
+            "description": "The Id of the System "
+          }
+        },
+        "description": "Clone System",
+        "xml": {
+          "name": "storageGroup_Clone_System"
+        }
+      },
+      "storageGroup_GateKeeperVolume": {
+        "title": "non_gk_volumes",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Volume"
+          },
+          "wwn": {
+            "title": "wwn",
+            "type": "string",
+            "description": "The WWN of the volume"
+          },
+          "effective_wwn": {
+            "title": "effective_wwn",
+            "type": "string",
+            "description": "The Effective WWN of the volume"
+          }
+        },
+        "description": "Storage Group Volume",
+        "xml": {
+          "name": "storageGroup_GateKeeperVolume"
+        }
+      },
+      "storageGroup_HostIoInfo": {
+        "title": "host_io_limit_info",
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "host_io_limit_mb_sec": {
+            "title": "host_io_limit_mb_sec",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The MBs per Second Host IO limit for the storage group",
+            "format": "int64"
+          },
+          "host_io_limit_io_sec": {
+            "title": "host_io_limit_io_sec",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The IOs per Second Host IO limit for the storage group",
+            "format": "int64"
+          },
+          "dynamic_distribution": {
+            "title": "dynamic_distribution",
+            "type": "string",
+            "description": "The dynamic distribution type which can be \"never\",\"always\" or \"on_failure\""
+          }
+        },
+        "description": "Host IO limit of the storage group",
+        "xml": {
+          "name": "storageGroup_HostIoInfo"
+        }
+      },
+      "storageGroup_MaskingView": {
+        "title": "masking_views",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the MAsking View"
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "host": {
+            "$ref": "#/components/schemas/storageGroup_MaskingView_Host"
+          },
+          "port_group": {
+            "$ref": "#/components/schemas/storageGroup_MaskingView_PortGroup"
+          },
+          "storage_group": {
+            "$ref": "#/components/schemas/storageGroup_MaskingView_StorageGroup"
+          },
+          "uuid": {
+            "title": "uuid",
+            "type": "string",
+            "description": "The UUID of the masking view "
+          },
+          "last_update_time_ms": {
+            "title": "last_update_time_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Date the Masking View was Last updated in milliseconds",
+            "format": "int64"
+          },
+          "masking_view_last_update_time_ms": {
+            "title": "masking_view_last_update_time_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Date any component of this masking view was updated in milliseconds",
+            "format": "int64"
+          },
+          "num_of_initiators": {
+            "title": "num_of_initiators",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of initiators associated with this MAsking View ",
+            "format": "int64"
+          }
+        },
+        "description": "Storage Group Masking View ",
+        "xml": {
+          "name": "storageGroup_MaskingView"
+        }
+      },
+      "storageGroup_MaskingView_Host": {
+        "title": "host",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the host"
+          }
+        },
+        "description": " Masking View Host ",
+        "xml": {
+          "name": "storageGroup_MaskingView_Host"
+        }
+      },
+      "storageGroup_MaskingView_PortGroup": {
+        "title": "port_group",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the host"
+          }
+        },
+        "description": " Masking View Host ",
+        "xml": {
+          "name": "storageGroup_MaskingView_PortGroup"
+        }
+      },
+      "storageGroup_MaskingView_StorageGroup": {
+        "title": "storage_group",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Storage Group"
+          }
+        },
+        "description": " Masking View Storage Group ",
+        "xml": {
+          "name": "storageGroup_MaskingView_StorageGroup"
+        }
+      },
+      "storageGroup_ParentStorageGroup": {
+        "title": "parent_storage_groups",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Parent Storage Group"
+          }
+        },
+        "description": "Parent Storage Group",
+        "xml": {
+          "name": "storageGroup_ParentStorageGroup"
+        }
+      },
+      "storageGroup_RdfGroup": {
+        "title": "remote_rdf_group",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The RDF Group Number"
+          },
+          "system": {
+            "$ref": "#/components/schemas/storageGroup_Rdf_Group_System"
+          },
+          "ucode": {
+            "title": "ucode",
+            "type": "string",
+            "description": "The ucode of the system"
+          }
+        },
+        "description": "Storage Group RDF Group",
+        "xml": {
+          "name": "storageGroup_RdfGroup"
+        }
+      },
+      "storageGroup_RdfInfo": {
+        "title": "rdf_infos",
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "states": {
+            "title": "states",
+            "type": "array",
+            "description": "The List of States across all RDF pairs",
+            "items": {
+              "title": "states",
+              "type": "string",
+              "description": "The List of States across all RDF pairs"
+            }
+          },
+          "types": {
+            "title": "types",
+            "type": "array",
+            "description": "The List of Types across all RDF pairs",
+            "items": {
+              "title": "types",
+              "type": "string",
+              "description": "The List of Types across all RDF pairs"
+            }
+          },
+          "modes": {
+            "title": "modes",
+            "type": "array",
+            "description": "The List of Modes across all RDF pairs",
+            "items": {
+              "title": "modes",
+              "type": "string",
+              "description": "The List of Modes across all RDF pairs"
+            }
+          },
+          "cap_gb": {
+            "title": "cap_gb",
+            "type": "number",
+            "description": "The Total Capacity (GBs) of all the local volumes",
+            "format": "double"
+          },
+          "cap_mb": {
+            "title": "cap_mb",
+            "type": "number",
+            "description": "The Total Capacity (MBs) of all the local volumes",
+            "format": "double"
+          },
+          "async": {
+            "title": "async",
+            "type": "boolean",
+            "description": "Specifies if async is enabled or not"
+          },
+          "metro": {
+            "title": "metro",
+            "type": "boolean",
+            "description": "Specifies if metro is enabled or not"
+          },
+          "num_of_pairs": {
+            "title": "num_of_pairs",
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "description": "Specifies the total number of pairs",
+            "format": "int32"
+          },
+          "pairs": {
+            "title": "pairs",
+            "type": "array",
+            "description": "The List of RDF pairs",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_RdfPair"
+            }
+          },
+          "local_rdf_group": {
+            "$ref": "#/components/schemas/storageGroup_RdfGroup"
+          },
+          "remote_rdf_group": {
+            "$ref": "#/components/schemas/storageGroup_RdfGroup"
+          }
+        },
+        "description": "Storage Group RDF Infos",
+        "xml": {
+          "name": "storageGroup_RdfInfo"
+        }
+      },
+      "storageGroup_RdfPair": {
+        "title": "pairs",
+        "required": [
+          "local_volume",
+          "remote_volume"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "local_volume": {
+            "$ref": "#/components/schemas/storageGroup_RdfPair_Volume"
+          },
+          "remote_volume": {
+            "$ref": "#/components/schemas/storageGroup_RdfPair_Volume"
+          },
+          "link_status": {
+            "title": "link_status",
+            "type": "string",
+            "description": "The current status of the RDF link"
+          },
+          "state": {
+            "title": "state",
+            "type": "string",
+            "description": "The current State of the RDF Pair"
+          },
+          "mode": {
+            "title": "mode",
+            "type": "string",
+            "description": "The current mode of the RDF Pair"
+          },
+          "adaptive_copy_state": {
+            "title": "adaptive_copy_state",
+            "type": "string",
+            "description": "The current adaptive copy state of the RDF Pair"
+          },
+          "consistency_state": {
+            "title": "consistency_state",
+            "type": "string",
+            "description": "The current consistency state of the RDF Pair"
+          },
+          "suspend_state": {
+            "title": "suspend_state",
+            "type": "string",
+            "description": "The current suspend state of the RDF Pair"
+          }
+        },
+        "description": "Storage Group RDF Group",
+        "xml": {
+          "name": "storageGroup_RdfPair"
+        }
+      },
+      "storageGroup_RdfPair_Volume": {
+        "title": "remote_volume",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Volume"
+          }
+        },
+        "description": "Storage Group RDF Pair Volume",
+        "xml": {
+          "name": "storageGroup_RdfPair_Volume"
+        }
+      },
+      "storageGroup_Rdf_Group_System": {
+        "title": "system",
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the system"
+          }
+        },
+        "description": "Storage Group RDF Group System",
+        "xml": {
+          "name": "storageGroup_Rdf_Group_System"
+        }
+      },
+      "storageGroup_ServiceLevel": {
+        "title": "service_level",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Service Level"
+          },
+          "base_id": {
+            "title": "base_id",
+            "type": "string",
+            "description": "The Base identifier of the Service level"
+          }
+        },
+        "description": "Service Level",
+        "xml": {
+          "name": "storageGroup_ServiceLevel"
+        }
+      },
+      "storageGroup_Snapshot": {
+        "title": "snapshots",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The Snapset Id of the Snapshot "
+          },
+          "name": {
+            "title": "name",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the snapshot "
+          },
+          "timestamp_ms": {
+            "title": "timestamp_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Timestamp the Snapshot was created in milliseconds from EPOCH",
+            "format": "int64"
+          },
+          "generation": {
+            "title": "generation",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Generation number of the Snapshot",
+            "format": "int64"
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Specifies the Snapshot type e.g. [Manual, Policy]"
+          },
+          "linked": {
+            "title": "linked",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is linked"
+          },
+          "restored": {
+            "title": "restored",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is restored"
+          },
+          "expired": {
+            "title": "expired",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is expired"
+          },
+          "secured": {
+            "title": "secured",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is secured"
+          },
+          "persistent": {
+            "title": "persistent",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is persistent"
+          },
+          "num_of_volumes": {
+            "title": "num_of_volumes",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of volumes associated with the storage group",
+            "format": "int64"
+          },
+          "volumes": {
+            "title": "volumes",
+            "type": "array",
+            "description": "The Volumes(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_Snapshot_Volume"
+            }
+          },
+          "cap_gb": {
+            "title": "cap_gb",
+            "type": "number",
+            "description": "The Total capacity of the storage group when this snapshot was taken",
+            "format": "double"
+          }
+        },
+        "description": "Storage Group Snapshot",
+        "xml": {
+          "name": "storageGroup_Snapshot"
+        }
+      },
+      "storageGroup_SnapshotPolicy": {
+        "title": "snapshot_policies",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The Id of Snaphsot Policy"
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "association_time_ms": {
+            "title": "association_time_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The time the Storage Group was associated with the policy in milliseconds from EPOCH",
+            "format": "int64"
+          },
+          "resumed": {
+            "title": "resumed",
+            "type": "boolean",
+            "description": "Specifies if the policy is Resumed"
+          },
+          "suspended": {
+            "title": "suspended",
+            "type": "boolean",
+            "description": "Specifies if the policy is suspended"
+          },
+          "inherited": {
+            "title": "inherited",
+            "type": "boolean",
+            "description": "Specifies if the policy is inherited"
+          }
+        },
+        "description": "Storage Group Snapshot Policy",
+        "xml": {
+          "name": "storageGroup_SnapshotPolicy"
+        }
+      },
+      "storageGroup_Snapshot_Volume": {
+        "title": "volumes",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Volume"
+          }
+        },
+        "description": "Storage Group Volume",
+        "xml": {
+          "name": "storageGroup_Snapshot_Volume"
+        }
+      },
+      "storageGroup_Srp": {
+        "title": "srp",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Service Level"
+          }
+        },
+        "description": "Service Level",
+        "xml": {
+          "name": "storageGroup_Srp"
+        }
+      },
+      "storageGroup_System": {
+        "title": "system",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the system"
+          }
+        },
+        "description": "Storage Group System",
+        "xml": {
+          "name": "storageGroup_System"
+        }
+      },
+      "storageGroup_Tag": {
+        "title": "tags",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the Tag"
+          },
+          "tagged_objects": {
+            "title": "tagged_objects",
+            "type": "array",
+            "description": "The tagged Objects associated with the Tag",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup_Tag_Tagged_Object"
+            }
+          }
+        },
+        "description": "Storage Group System",
+        "xml": {
+          "name": "storageGroup_Tag"
+        }
+      },
+      "storageGroup_Tag_Tagged_Object": {
+        "title": "tagged_objects",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the Tag"
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The type of Tagged object"
+          }
+        },
+        "description": "Storage Group System",
+        "xml": {
+          "name": "storageGroup_Tag_Tagged_Object"
+        }
+      },
+      "storageGroup_Volume": {
+        "title": "volumes",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Volume"
+          },
+          "wwn": {
+            "title": "wwn",
+            "type": "string",
+            "description": "The WWN of the volume"
+          },
+          "effective_wwn": {
+            "title": "effective_wwn",
+            "type": "string",
+            "description": "The Effective WWN of the volume"
+          }
+        },
+        "description": "Storage Group Volume",
+        "xml": {
+          "name": "storageGroup_Volume"
+        }
+      },
+      "storageGroups": {
+        "type": "object",
+        "properties": {
+          "storage_groups": {
+            "title": "storage_groups",
+            "type": "array",
+            "description": "The List of Storage Groups",
+            "items": {
+              "$ref": "#/components/schemas/storageGroup"
+            }
+          }
+        },
+        "description": "A list of Storage Groups",
+        "xml": {
+          "name": "storageGroups"
+        }
+      },
+      "volume": {
+        "title": "volumes",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Volume"
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The Volume type"
+          },
+          "system": {
+            "$ref": "#/components/schemas/volume_System"
+          },
+          "emulation": {
+            "title": "emulation",
+            "type": "string",
+            "description": "The emulation of the volume"
+          },
+          "status": {
+            "title": "status",
+            "type": "string",
+            "description": "The current status of the volume"
+          },
+          "identifier": {
+            "title": "identifier",
+            "type": "string",
+            "description": "The identifier (nice name) of the volume"
+          },
+          "ssid": {
+            "title": "ssid",
+            "type": "string",
+            "description": "The ssid of the volume"
+          },
+          "nguid": {
+            "title": "nguid",
+            "type": "string",
+            "description": "The nguid of the volume"
+          },
+          "wwn": {
+            "title": "wwn",
+            "type": "string",
+            "description": "The WWN of the volume"
+          },
+          "effective_wwn": {
+            "title": "effective_wwn",
+            "type": "string",
+            "description": "The Effective WWN of the volume"
+          },
+          "has_effective_wwn": {
+            "title": "has_effective_wwn",
+            "type": "boolean",
+            "description": "specifies if the Effective WWN is set or not"
+          },
+          "mobility_id_enabled": {
+            "title": "mobility_id_enabled",
+            "type": "boolean",
+            "description": "specifies if the Mobility Id is set or not"
+          },
+          "encapsulated": {
+            "title": "encapsulated",
+            "type": "boolean",
+            "description": "specifies if the volume is encapsulated or not"
+          },
+          "snapvx_source": {
+            "title": "snapvx_source",
+            "type": "boolean",
+            "description": "specifies if the volume is SnapVx Source or not"
+          },
+          "snapvx_target": {
+            "title": "snapvx_target",
+            "type": "boolean",
+            "description": "specifies if the volume is SnapVx Source or not"
+          },
+          "num_of_storage_groups": {
+            "title": "num_of_storage_groups",
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "description": "The number of Storage Group(s) associated with the volume",
+            "format": "int32"
+          },
+          "storage_groups": {
+            "title": "storage_groups",
+            "type": "array",
+            "description": "The Storage Group(s) associated with the volume",
+            "items": {
+              "$ref": "#/components/schemas/volume_StorageGroup"
+            }
+          },
+          "num_of_masking_views": {
+            "title": "num_of_masking_views",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of masking views associated with the storage group",
+            "format": "int64"
+          },
+          "masking_views": {
+            "title": "masking_views",
+            "type": "array",
+            "description": "The masking view(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/volume_MaskingView"
+            }
+          },
+          "num_of_snapshots": {
+            "title": "num_of_snapshots",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of snapshots associated with the storage group",
+            "format": "int64"
+          },
+          "snapshots": {
+            "title": "snapshots",
+            "type": "array",
+            "description": "The snapshot(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/volume_Snapshot"
+            }
+          },
+          "num_of_clones": {
+            "title": "num_of_clones",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The number of Clones associated with the storage group",
+            "format": "int64"
+          },
+          "clones": {
+            "title": "clones",
+            "type": "array",
+            "description": "The Clone(s) associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/volume_Clone_PairInfo"
+            }
+          },
+          "num_of_rdf_infos": {
+            "title": "num_of_rdf_infos",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Number of RDF Info Objects associated with the storage group",
+            "format": "int64"
+          },
+          "rdf_infos": {
+            "title": "rdf_infos",
+            "type": "array",
+            "description": "The RDF Infos associated with the storage group",
+            "items": {
+              "$ref": "#/components/schemas/volume_RdfInfo"
+            }
+          },
+          "cap_tb": {
+            "title": "cap_tb",
+            "type": "number",
+            "description": "The total capacity in TBs ",
+            "format": "double"
+          },
+          "cap_gb": {
+            "title": "cap_gb",
+            "type": "number",
+            "description": "The total capacity in GBs ",
+            "format": "double"
+          },
+          "cap_mb": {
+            "title": "cap_mb",
+            "type": "number",
+            "description": "The total capacity in MBs ",
+            "format": "double"
+          },
+          "cap_cyl": {
+            "title": "cap_cyl",
+            "type": "number",
+            "description": "The total capacity in Cyls ",
+            "format": "double"
+          },
+          "unreducible_data_gb": {
+            "title": "unreducible_data_gb",
+            "type": "number",
+            "description": "The total Unreducible Data GBs ",
+            "format": "double"
+          },
+          "data_reduction_ratio_to_one": {
+            "title": "data_reduction_ratio_to_one",
+            "type": "number",
+            "description": "The Data Reduction Ratio in relation to 1 ",
+            "format": "double"
+          },
+          "data_reduction_enabled": {
+            "title": "data_reduction_enabled",
+            "type": "boolean",
+            "description": "Specifies if Data Reduction is enabled or not "
+          },
+          "effective_used_capacity_gb": {
+            "title": "effective_used_capacity_gb",
+            "type": "number",
+            "description": "The Effective Used Capacity in GBs ",
+            "format": "double"
+          },
+          "srp": {
+            "$ref": "#/components/schemas/volume_Srp"
+          }
+        },
+        "description": "Storage Group",
+        "xml": {
+          "name": "volume"
+        }
+      },
+      "volume_Clone_PairInfo": {
+        "title": "clones",
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "source_volume": {
+            "$ref": "#/components/schemas/volume_Clone_PairInfo_Volume"
+          },
+          "target_volume": {
+            "$ref": "#/components/schemas/volume_Clone_PairInfo_Volume"
+          },
+          "state": {
+            "title": "state",
+            "type": "string",
+            "description": "The Pair State"
+          },
+          "flags": {
+            "title": "flags",
+            "type": "array",
+            "description": "The Pair Flags",
+            "items": {
+              "title": "flags",
+              "type": "string",
+              "description": "The Pair Flags"
+            }
+          },
+          "modified_tracks": {
+            "title": "modified_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of modified tracks",
+            "format": "int64"
+          },
+          "source_modified_tracks": {
+            "title": "source_modified_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of Source modified tracks",
+            "format": "int64"
+          },
+          "source_protected_tracks": {
+            "title": "source_protected_tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of Source protected tracks",
+            "format": "int64"
+          },
+          "last_action_timestamp_ms": {
+            "title": "last_action_timestamp_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The date the last action occurred on the clone ",
+            "format": "int64"
+          },
+          "percent_complete": {
+            "title": "percent_complete",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The current percent of data clone ",
+            "format": "int64"
+          },
+          "system": {
+            "$ref": "#/components/schemas/volume_Clone_System"
+          }
+        },
+        "description": "Volume Clone",
+        "xml": {
+          "name": "volume_Clone_PairInfo"
+        }
+      },
+      "volume_Clone_PairInfo_Volume": {
+        "title": "target_volume",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Volume"
+          }
+        },
+        "description": "Clone Pair Volume",
+        "xml": {
+          "name": "volume_Clone_PairInfo_Volume"
+        }
+      },
+      "volume_Clone_System": {
+        "title": "system",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "pattern": "\\d{12}",
+            "type": "string",
+            "description": "The Id of the System "
+          }
+        },
+        "description": "Clone System",
+        "xml": {
+          "name": "volume_Clone_System"
+        }
+      },
+      "volume_MaskingView": {
+        "title": "masking_views",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Masking View"
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "host": {
+            "$ref": "#/components/schemas/volume_MaskingView_Host"
+          },
+          "port_group": {
+            "$ref": "#/components/schemas/volume_MaskingView_PortGroup"
+          },
+          "storage_group": {
+            "$ref": "#/components/schemas/volume_MaskingView_StorageGroup"
+          },
+          "uuid": {
+            "title": "uuid",
+            "type": "string",
+            "description": "The UUID of the masking view "
+          },
+          "last_update_time_ms": {
+            "title": "last_update_time_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Date the Masking View was Last updated in milliseconds",
+            "format": "int64"
+          },
+          "masking_view_last_update_time_ms": {
+            "title": "masking_view_last_update_time_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Date any component of this masking view was updated in milliseconds",
+            "format": "int64"
+          },
+          "num_of_initiators": {
+            "title": "num_of_initiators",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The total number of initiators associated with this MAsking View ",
+            "format": "int64"
+          }
+        },
+        "description": "Volume Masking View ",
+        "xml": {
+          "name": "volume_MaskingView"
+        }
+      },
+      "volume_MaskingView_Host": {
+        "title": "host",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the host"
+          }
+        },
+        "description": " Masking View Host ",
+        "xml": {
+          "name": "volume_MaskingView_Host"
+        }
+      },
+      "volume_MaskingView_PortGroup": {
+        "title": "port_group",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the host"
+          }
+        },
+        "description": " Masking View Host ",
+        "xml": {
+          "name": "volume_MaskingView_PortGroup"
+        }
+      },
+      "volume_MaskingView_StorageGroup": {
+        "title": "storage_group",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Storage Group"
+          }
+        },
+        "description": " Masking View Storage Group ",
+        "xml": {
+          "name": "volume_MaskingView_StorageGroup"
+        }
+      },
+      "volume_RdfGroup": {
+        "title": "remote_rdf_group",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The RDF Group Number"
+          },
+          "system": {
+            "$ref": "#/components/schemas/volume_Rdf_Group_System"
+          },
+          "ucode": {
+            "title": "ucode",
+            "type": "string",
+            "description": "The ucode of the system"
+          }
+        },
+        "description": "Volume RDF Group",
+        "xml": {
+          "name": "volume_RdfGroup"
+        }
+      },
+      "volume_RdfInfo": {
+        "title": "rdf_infos",
+        "required": [
+          "remote_volume"
+        ],
+        "type": "object",
+        "properties": {
+          "remote_volume": {
+            "$ref": "#/components/schemas/volume_RdfInfo_Volume"
+          },
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "local_rdf_group": {
+            "$ref": "#/components/schemas/volume_RdfGroup"
+          },
+          "remote_rdf_group": {
+            "$ref": "#/components/schemas/volume_RdfGroup"
+          },
+          "state": {
+            "title": "state",
+            "type": "string",
+            "description": "The RDF Pair State"
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "The RDF Pair Type"
+          },
+          "mode": {
+            "title": "mode",
+            "type": "string",
+            "description": "The RDF Pair Mode"
+          },
+          "async": {
+            "title": "async",
+            "type": "boolean",
+            "description": "Specifies if async is enabled or not"
+          },
+          "metro": {
+            "title": "metro",
+            "type": "boolean",
+            "description": "Specifies if metro is enabled or not"
+          }
+        },
+        "description": "Volume RDF Infos",
+        "xml": {
+          "name": "volume_RdfInfo"
+        }
+      },
+      "volume_RdfInfo_Volume": {
+        "title": "remote_volume",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the Volume"
+          }
+        },
+        "description": "RDF Info Volume",
+        "xml": {
+          "name": "volume_RdfInfo_Volume"
+        }
+      },
+      "volume_Rdf_Group_System": {
+        "title": "system",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "pattern": "\\d{12}",
+            "type": "string",
+            "description": "The name of the system"
+          }
+        },
+        "description": "Volume RDF Group System",
+        "xml": {
+          "name": "volume_Rdf_Group_System"
+        }
+      },
+      "volume_Snapshot": {
+        "title": "snapshots",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The Snapset Id of the Snapshot "
+          },
+          "name": {
+            "title": "name",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the snapshot "
+          },
+          "timestamp_ms": {
+            "title": "timestamp_ms",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Timestamp the Snapshot was created in milliseconds from EPOCH",
+            "format": "int64"
+          },
+          "generation": {
+            "title": "generation",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Generation number of the Snapshot",
+            "format": "int64"
+          },
+          "type": {
+            "title": "type",
+            "type": "string",
+            "description": "Specifies the Snapshot type e.g. [Manual, Policy]"
+          },
+          "linked": {
+            "title": "linked",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is linked"
+          },
+          "restored": {
+            "title": "restored",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is restored"
+          },
+          "expired": {
+            "title": "expired",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is expired"
+          },
+          "expiry_date": {
+            "title": "expiry_date",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The  Expiry Date of the snapshot ",
+            "format": "int64"
+          },
+          "secured": {
+            "title": "secured",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is secured"
+          },
+          "failed": {
+            "title": "failed",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is failed"
+          },
+          "persistent": {
+            "title": "persistent",
+            "type": "boolean",
+            "description": "Specifies if the snapshot is persistent"
+          },
+          "cap_gb": {
+            "title": "cap_gb",
+            "type": "number",
+            "description": "The Total capacity of the volume when this snapshot was taken",
+            "format": "double"
+          },
+          "tracks": {
+            "title": "tracks",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The Total tracks of the snapshot",
+            "format": "int64"
+          },
+          "track_size": {
+            "title": "track_size",
+            "maximum": 9223372036854776000,
+            "minimum": -9223372036854776000,
+            "type": "integer",
+            "description": "The  tracks size of the snapshot",
+            "format": "int64"
+          }
+        },
+        "description": "Storage Group Snapshot",
+        "xml": {
+          "name": "volume_Snapshot"
+        }
+      },
+      "volume_Srp": {
+        "title": "srp",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Service Level"
+          }
+        },
+        "description": "SRP",
+        "xml": {
+          "name": "volume_Srp"
+        }
+      },
+      "volume_StorageGroup": {
+        "title": "storage_groups",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "maxLength": 64,
+            "minLength": 1,
+            "pattern": "[a-zA-Z0-9_\\-]+",
+            "type": "string",
+            "description": "The name of the Storage Group"
+          }
+        },
+        "description": "Volume Storage Group",
+        "xml": {
+          "name": "volume_StorageGroup"
+        }
+      },
+      "volume_System": {
+        "title": "system",
+        "required": [
+          "id"
+        ],
+        "type": "object",
+        "properties": {
+          "resource_type": {
+            "title": "resource_type",
+            "type": "string",
+            "description": "The Resource type"
+          },
+          "id": {
+            "title": "id",
+            "type": "string",
+            "description": "The name of the system"
+          }
+        },
+        "description": "Volume System",
+        "xml": {
+          "name": "volume_System"
+        }
+      },
+      "volumes": {
+        "type": "object",
+        "properties": {
+          "volumes": {
+            "title": "volumes",
+            "type": "array",
+            "description": "The List of Volumes",
+            "items": {
+              "$ref": "#/components/schemas/volume"
+            }
+          }
+        },
+        "description": "A list of Storage Groups",
+        "xml": {
+          "name": "volumes"
+        }
+      }
+    },
+    "securitySchemes": {
+      "apiSecurity": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    }
+  }
+}
