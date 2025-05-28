@@ -1,4 +1,4 @@
-Prerequisite: Java 11 
+Prerequisite: Java 17 
 
 Steps to Run Rest Client:
 1. Execute "run.bat"
